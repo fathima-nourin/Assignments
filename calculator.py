@@ -21,12 +21,12 @@ class Calculator:
 
 calc = Calculator(10, 5)
 if operation == "+":
-    print(calc.addition(10, 5))
+    print(calc.addition())
 elif operation == "-":
-    print(calc.subtraction(10, 5))
+    print(calc.subtraction())
 elif operation == "*":
-    print(calc.multiplication(10, 5))
+    print(calc.multiplication())
 elif operation == "/":
-    print(calc.division(10, 5))
+    print(calc.division())
 else:
     print("0")
