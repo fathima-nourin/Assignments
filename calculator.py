@@ -1,4 +1,4 @@
-operation = input()
+operation = input("enter the type of operation")
 
 
 class Calculator:
