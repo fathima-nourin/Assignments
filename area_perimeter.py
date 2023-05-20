@@ -31,7 +31,7 @@ class Rectangle:
         return perimeter
 
 
-shape = input("enter the shape").lower().strip()
+shape = input("enter the shape ").lower().strip()
 obj_square = Square(4)
 obj_rectangle = Rectangle(5, 6)
 if shape == "square":
