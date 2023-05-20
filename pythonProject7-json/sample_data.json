@@ -1,0 +1,29 @@
+{
+  "siteDetails": {
+    "siteIp": "",
+    "siteName": "Prakash industries Limited",
+    "siteLabel": "PILETP",
+    "city": "CHAMPA",
+    "location": "CHAMPA",
+    "state": "Chhattisgarh",
+    "industry": "POWER PLANT",
+    "latitude": "22.0130017",
+    "longitude": "82.6632343",
+    "Message": "<br>Site is active.",
+    "siteConfigLastUpdatedTime": "",
+    "siteConfigLastCalibratedTime": "",
+    "siteConfigLastSynchronizedTime": "2023-05-14T19:45:11Z",
+    "cpcbPortalLastSynchronized": "2023-05-14T19:18:39Z",
+    "siteConfigCalibrationTemperature": "100 degree",
+    "siteConfigCalibrationPreasure": "100 kPa",
+    "siteCurrentStatus": "Site In Maintenance Mode",
+    "siteCurrentStatusEndTime": "2014-09-19T01:53:56.796Z",
+    "AcquisitionSystem": "KL",
+    "AcquisitionVersion": "0.1",
+    "smsCount": 0,
+    "monitoringStations": 1,
+    "parametersConnected": 6,
+    "exceedingParameters": 0
+  },
+  "url": "http://cpcb.glensserver.com/GLensApp/site_1059"
+}
