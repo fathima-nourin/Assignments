@@ -1,4 +1,9 @@
 from scripts.utils.mongo_utility import Mongoserver
+from scripts.db.mongodb import Aggregate
+import smtplib
+from scripts.constants.app_constants import Email_constants
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart  # construct mail with multipart
 
 
 class InventoryHandler:
@@ -38,3 +43,35 @@ class InventoryHandler:
             else:
                 return {"message": "Item not found"}
         return {"message": "item not found"}
+
+    def send_aggregatemail(self, recv_email):
+        data = self.mongo_server_obj.aggregate_data(Aggregate.aggr)
+        total_cost = data[0]['total']
+        # total_item_cost = [i for i in self.mongo_server_obj.aggregate_data(total_cost)]
+        # return total_item_cost
+        # code for sending mail
+        message = '''
+                  Hello,
+
+                  Here is the total cost of the items in the inventory:
+
+                  
+
+                  TOTAL COST OF ITEMS={}
+                  Best regards,
+                  Fathima Nourin T R,
+                  '''.format(total_cost)
+        email = MIMEMultipart()
+        email['From'] = Email_constants.smtp_username
+        email['To'] = recv_email
+        email['Subject'] = Email_constants.subject
+        # Attach the message to the email
+        email.attach(MIMEText(message, 'plain'))
+        # Connect to the SMTP server and send the email
+        server = smtplib.SMTP(Email_constants.smtp_server, Email_constants.smtp_port)
+        server.starttls()  # to enable a secure communication channel using Transport Layer Security (TLS) or Secure Sockets Layer (SSL) encryption
+        server.login(Email_constants.smtp_username, Email_constants.smtp_password)  # authentication
+        server.send_message(email)
+        # print('Email sent successfully.')
+        return {"message": "Email sent successfully."}
+        server.quit()

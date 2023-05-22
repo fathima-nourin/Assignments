@@ -54,3 +54,15 @@ class Mongoserver:
             return mongo_result
         except Exception as e:
             raise Exception(str(e))
+
+    def aggregate_data(self, pipeline:list):
+        try:
+            mongo_collect = self.client_uri[self.db][self.collection]
+            mongo_result = list(mongo_collect.aggregate(pipeline))
+            return mongo_result
+        except Exception as e:
+            raise Exception(str(e))
+
+
+
+

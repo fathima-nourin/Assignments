@@ -6,3 +6,6 @@ class Inventory(BaseModel):
     item_name: str
     quantity: int
     cost: int
+
+class Email(BaseModel):
+	email:str
