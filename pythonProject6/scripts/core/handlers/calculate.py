@@ -1,9 +1,7 @@
-
-
 class Calculator:
     @staticmethod
     def add(num1: int, num2: int):
-      #  {"status": "success/failed","message":"fetch data success","data":{}}
+        #  {"status": "success/failed","message":"fetch data success","data":{}}
         return num1 + num2
 
     @staticmethod
@@ -19,5 +17,3 @@ class Calculator:
         if num2 == 0:
             raise ZeroDivisionError("Division by zero is not allowed.")
         return num1 / num2
-
-
