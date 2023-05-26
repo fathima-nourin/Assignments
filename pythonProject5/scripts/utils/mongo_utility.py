@@ -31,10 +31,10 @@ class Mongoserver:
         except Exception as e:
             raise Exception(str(e))
 
-    def read_items(self):
+    def read_items(self, query: dict = {}, filter_dict: dict = {}):
         try:
             mongo_collect = self.client_uri[self.db][self.collection]
-            mongo_result = mongo_collect.find()
+            mongo_result = mongo_collect.find(query, filter_dict)
             return mongo_result
         except Exception as e:
             raise Exception(str(e))
@@ -47,22 +47,27 @@ class Mongoserver:
         except Exception as e:
             raise Exception(str(e))
 
+    def update_on_condition(self, condition, updated_item):
+        try:
+            mongo_collect = self.client_uri[self.db][self.collection]
+            result = mongo_collect.update_one(condition, {'$set': updated_item})
+            print(updated_item)
+            return result
+        except Exception as e:
+            raise Exception(str(e))
+
     def delete_items(self, item_id):
         try:
             mongo_collect = self.client_uri[self.db][self.collection]
-            mongo_result = mongo_collect.delete_one({"id":item_id})
+            mongo_result = mongo_collect.delete_one({"id": item_id})
             return mongo_result
         except Exception as e:
             raise Exception(str(e))
 
-    def aggregate_data(self, pipeline:list):
+    def aggregate_data(self, pipeline: list):
         try:
             mongo_collect = self.client_uri[self.db][self.collection]
             mongo_result = list(mongo_collect.aggregate(pipeline))
             return mongo_result
         except Exception as e:
             raise Exception(str(e))
-
-
-
-

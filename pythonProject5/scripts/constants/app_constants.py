@@ -7,6 +7,7 @@ class Endpoints:
     update_item_details = "/update_item_details/{item_id}"
     delete_item = "/delete_item/{item_id}"
     send_email = "/send_email"
+    pick_count = "/pick/{item_id}"
 
 
 class Email_constants:
@@ -15,7 +16,7 @@ class Email_constants:
     smtp_port = 587
     smtp_username = os.getenv('MAIL_ID')
     smtp_password = os.getenv('MAIL_PASSWORD')
-    print(smtp_username, smtp_password)
+    # print(smtp_username, smtp_password)
 
     # Set up the email content and recipient
     sender_email = 'fathimanourintr@gmail.com'
