@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter App</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .circle-container {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 500px;
+            height: 500px;
+            border: 4px solid #04490f;
+            border-radius: 50%;
+            background-color: white;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: black;
+        }
+        
+        .count {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: black;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 50px;
+            color: white;
+            background-color: #42f360;
+            border: none;
+        }
+        
+        .btn:hover {
+            background-color: #022606;
+        }
+        
+        .btn-reset {
+            background-color: #038018;
+        }
+        
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .buttons-container button {
+            margin: 0 5px;
+        }
+        
+        .circle-outline {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #04490f;
+            border-radius: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            transition: all 0.2s ease-in-out;
+            transform: scale(1);
+        }
+        
+        .circle-outline .count {
+            font-size: 36px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="title">Counter App</div>
+        <div class="circle-outline">
+          <div class="count" id="countDisplay">0</div>
+        </div>
+        <div class="buttons-container">
+            <button class="btn" onclick="decrement()">Decrement</button>
+            <button class="btn" onclick="increment()">Increment</button>
+        </div>
+        <button class="btn btn-reset" onclick="reset()">Reset</button>
+    </div>
+
+    <script>
+        let count = 0;
+        const countDisplay = document.getElementById("countDisplay");
+        const circleOutline = document.querySelector(".circle-outline");
+        
+        function updateDisplay() {
+            countDisplay.textContent = count;
+        }
+        
+        function increment() {
+            count++;
+            updateDisplay();
+            circleOutline.style.transform = "scale(1.3)";
+            setTimeout(() => {
+                circleOutline.style.transform = "scale(1)";
+            }, 200);
+        }
+        
+        function decrement() {
+            if (count > 0) {
+                count--;
+                updateDisplay();
+                circleOutline.style.transform = "scale(0.6)";
+                setTimeout(() => {
+                    circleOutline.style.transform = "scale(1)";
+                }, 200);
+            }
+        }
+        
+        function reset() {
+            count = 0;
+            updateDisplay();
+        }
+    </script>
+</body>
+</html>
